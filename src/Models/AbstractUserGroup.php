@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelScaffold\Entities;
+namespace LaravelScaffold\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

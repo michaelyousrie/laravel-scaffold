@@ -2,6 +2,7 @@
 
 namespace LaravelScaffold\Models;
 
+use App\UserGroup;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

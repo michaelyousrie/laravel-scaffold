@@ -2,7 +2,7 @@
 
 namespace LaravelScaffold\Abstracts;
 
-use App\Helpers\TimeDate;
+use LaravelScaffold\Helpers\TimeDate;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 abstract class AbstractResource extends JsonResource

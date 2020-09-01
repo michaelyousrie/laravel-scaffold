@@ -1,0 +1,22 @@
+{
+    "name": "michael_yousrie/laravel_scaffold",
+    "description": "Basic laravel scaffolding for common functionality.",
+    "authors": [
+        {
+            "name": "Michael Yousrie",
+            "email": "michaelyousrie@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LaravelScaffold\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": []
+        }
+    }
+}

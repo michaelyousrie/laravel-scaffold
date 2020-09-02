@@ -7,6 +7,9 @@
             "email": "michaelyousrie@gmail.com"
         }
     ],
+    "require": {
+        "laravel/framework": "^7.24"
+    },
     "minimum-stability": "dev",
     "license": "MIT",
     "autoload": {

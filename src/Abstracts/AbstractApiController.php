@@ -17,7 +17,7 @@ abstract class AbstractApiController extends Controller
     public function index()
     {
         return (new SuccessResponse)
-            ->setData($this->service->getAll())
+            ->setData($this->resource::collection($this->service->getAll()))
             ->send();
     }
 

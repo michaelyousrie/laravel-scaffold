@@ -7,7 +7,7 @@ use App\Http\Resources\{$name}Resource;
 use App\Http\Requests\Create{$name}Request;
 use LaravelScaffold\Abstracts\AbstractApiController;
 
-class {$name}Controller extends AbstractApiController
+class {$name}sController extends AbstractApiController
 {
     public function __construct({$name}Service $service)
     {

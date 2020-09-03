@@ -20,7 +20,7 @@ class GenerateEntity
         file_put_contents("{$dirRoot}/app/Http/Resources/{$entityName}Resource.php", $resourceStub);
         file_put_contents("{$dirRoot}/app/Services/{$entityName}Service.php", $serviceStub);
         file_put_contents("{$dirRoot}/app/{$entityName}.php", $modelStub);
-        file_put_contents("{$dirRoot}/app/{$entityName}.php", $modelStub);
+        file_put_contents("{$dirRoot}/app/Http/Requests/Create{$entityName}Request.php", $requestStub);
 
         return true;
     }

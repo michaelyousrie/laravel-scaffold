@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Services\{$name}Service;
 use App\Http\Resources\{$name}Resource;
+use App\Http\Requests\Create{$name}Request;
 use LaravelScaffold\Abstracts\AbstractApiController;
 
 class {$name}Controller extends AbstractApiController
@@ -14,10 +15,10 @@ class {$name}Controller extends AbstractApiController
         $this->resource = {$name}Resource::class;
     }
 
-    public function store()
+    public function store(Create{$name}Request $request)
     {
         return $this->create(
-           //
+            $request->only('key')
         );
     }
 }

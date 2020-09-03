@@ -25,7 +25,7 @@ class GenerateEntity
 
     private static function readStub(string $file)
     {
-        $currentDir = getcwd();
+        $currentDir = dirname(__FILE__);
 
         return file_get_contents("{$currentDir}/stubs/{$file}");
     }

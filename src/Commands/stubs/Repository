@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\{$name};
 use LaravelScaffold\Abstracts\AbstractRepository;
 
-class SupplierRepository extends AbstractRepository
+class {$name}Repository extends AbstractRepository
 {
     protected $model = {$name}::class;
 }

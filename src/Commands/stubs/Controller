@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Services\{$name}Service;
+use App\Http\Resources\{$name}Resource;
+use LaravelScaffold\Abstracts\AbstractApiController;
+
+class {$name}Controller extends AbstractApiController
+{
+    public function __construct({$name}Service $service)
+    {
+        $this->service = $service;
+        $this->resource = {$name}Resource::class;
+    }
+
+    public function store()
+    {
+        return $this->create(
+           //
+        );
+    }
+}

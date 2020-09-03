@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Repositories;
+
+use App\{$name};
+use LaravelScaffold\Abstracts\AbstractRepository;
+
+class SupplierRepository extends AbstractRepository
+{
+    protected $model = {$name}::class;
+}

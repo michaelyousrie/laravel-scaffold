@@ -10,7 +10,6 @@ abstract class ApiResponse
     protected $headers = [];
     protected $success = false;
     protected $data = [];
-    protected $defaultMessage = null;
 
     public function __construct(string $message = null)
     {
@@ -61,13 +60,31 @@ abstract class ApiResponse
 
     public function send()
     {
+        if (is_null($this->message)) {
+            $this->message = $this->getDefaultMessage();
+        }
+
+        if (empty($this->errors)) {
+            $this->errors = $this->getErrors();
+        }
+
         $responseData = [
             'success'   => $this->success,
-            'message'   => $this->message ?: $this->defaultMessage,
+            'message'   => $this->message,
             'data'      => $this->data,
             'errors'    => $this->errors
         ];
 
         return response()->json($responseData, $this->statusCode, $this->headers);
+    }
+
+    public function getDefaultMessage()
+    {
+        return __('responses.default');
+    }
+
+    public function getErrors(): array
+    {
+        return [];
     }
 }

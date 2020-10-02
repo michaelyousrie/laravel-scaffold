@@ -6,8 +6,16 @@ class UnauthenticatedResponse extends ApiResponse
 {
     protected $statusCode = 401;
     protected $success = false;
-    protected $defaultMessage = "You must be logged in :(";
-    protected $errors = [
-        "Authentication" => "You need to be logged in!"
-    ];
+
+    public function getErrors(): array
+    {
+        return [
+            "Authentication" => __("responses.login_required")
+        ];
+    }
+
+    public function getDefaultMessage()
+    {
+        return __("responses.login_required");
+    }
 }

@@ -6,5 +6,9 @@ class CreatedResponse extends ApiResponse
 {
     protected $success = true;
     protected $statusCode = 201;
-    protected $defaultMessage = "Resource Created Successfully :)";
+
+    public function getDefaultMessage()
+    {
+        return __("responses.created");
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\LoginController;
+use LaravelScaffold\Controllers\LoginController;
 use LaravelScaffold\Controllers\FilesController;
 use LaravelScaffold\Controllers\RegisterController;
 

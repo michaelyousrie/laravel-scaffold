@@ -17,6 +17,7 @@ class ScaffoldServiceProvider extends ServiceProvider
         $this->commands([
             MakeEntity::class
         ]);
+
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
         $this->loadMigrationsFrom(__DIR__ . '/Migrations');
         $this->loadTranslationsFrom(__DIR__ . '/Translations', 'scaffold');

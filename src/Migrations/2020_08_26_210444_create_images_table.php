@@ -13,7 +13,7 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('images', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('imageable_id');
             $table->string('imageable_type');
@@ -29,8 +29,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('images');
-        Schema::enableForeignKeyConstraints();
     }
 }

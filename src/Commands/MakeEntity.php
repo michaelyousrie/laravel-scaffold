@@ -37,22 +37,22 @@ class MakeEntity extends Command
      */
     public function handle()
     {
-        self::execute($this->argument('name'), base_path());
+        $this->generateEntity($this->argument('name'), base_path());
         $this->info("Generated successfully!");
 
         return 0;
     }
 
-    private static function execute(string $entityName, string $dirRoot)
+    private function generateEntity(string $entityName, string $dirRoot)
     {
         $entityName = ucfirst(strtolower($entityName));
 
-        $controllerStub = self::inject(self::readStub("Controller"), $entityName);
-        $repoStub = self::inject(self::readStub("Repository"), $entityName);
-        $resourceStub = self::inject(self::readStub("Resource"), $entityName);
-        $serviceStub = self::inject(self::readStub("Service"), $entityName);
-        $modelStub = self::inject(self::readStub("Model"), $entityName);
-        $requestStub = self::inject(self::readStub("Request"), $entityName);
+        $controllerStub = $this->inject($this->readStub("Controller"), $entityName);
+        $repoStub = $this->inject($this->readStub("Repository"), $entityName);
+        $resourceStub = $this->inject($this->readStub("Resource"), $entityName);
+        $serviceStub = $this->inject($this->readStub("Service"), $entityName);
+        $modelStub = $this->inject($this->readStub("Model"), $entityName);
+        $requestStub = $this->inject($this->readStub("Request"), $entityName);
 
         file_put_contents("{$dirRoot}/app/Http/Controllers/Api/{$entityName}sController.php", $controllerStub);
         file_put_contents("{$dirRoot}/app/Repositories/{$entityName}Repository.php", $repoStub);
@@ -64,14 +64,14 @@ class MakeEntity extends Command
         return true;
     }
 
-    private static function readStub(string $file)
+    private function readStub(string $file)
     {
         $currentDir = dirname(__FILE__);
 
         return file_get_contents("{$currentDir}/stubs/{$file}");
     }
 
-    private static function inject(string $stub, string $name)
+    private function inject(string $stub, string $name)
     {
         return str_replace('{$name}', $name, $stub);
     }

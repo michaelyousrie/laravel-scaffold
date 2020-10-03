@@ -5,7 +5,7 @@ use LaravelScaffold\Controllers\LoginController;
 use LaravelScaffold\Controllers\FilesController;
 use LaravelScaffold\Controllers\RegisterController;
 
-Route::group(['prefix' => 'v1'], function () {
+Route::group(['prefix' => 'api/v1'], function () {
     // Auth Routes
     Route::group(['prefix' => 'auth'], function () {
         Route::post('register', [RegisterController::class, 'handle'])

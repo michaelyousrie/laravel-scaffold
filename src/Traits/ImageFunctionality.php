@@ -2,6 +2,8 @@
 
 namespace LaravelScaffold\Traits;
 
+use Illuminate\Http\UploadedFile;
+
 trait ImageFunctionality
 {
     public function addImage(UploadedFile $file)

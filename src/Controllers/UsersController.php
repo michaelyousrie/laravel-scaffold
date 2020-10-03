@@ -2,9 +2,9 @@
 
 namespace LaravelScaffold\Controllers;
 
-use App\Services\UserService;
 use App\Http\Resources\UserResource;
 use App\Http\Requests\CreateUserRequest;
+use LaravelScaffold\Services\UserService;
 
 class UsersController extends ScaffoldController
 {

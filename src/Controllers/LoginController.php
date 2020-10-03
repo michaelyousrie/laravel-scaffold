@@ -2,8 +2,8 @@
 
 namespace LaravelScaffold\Controllers;
 
-use App\Services\UserService;
 use App\Http\Requests\UserLoginRequest;
+use LaravelScaffold\Services\UserService;
 
 class LoginController extends ScaffoldController
 {

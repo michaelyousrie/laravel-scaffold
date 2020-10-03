@@ -4,10 +4,10 @@ namespace LaravelScaffold\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Requests\DeleteMultipleRequest;
 use LaravelScaffold\Responses\CreatedResponse;
 use LaravelScaffold\Responses\SuccessResponse;
 use LaravelScaffold\Responses\NotFoundResponse;
+use LaravelScaffold\Requests\DeleteMultipleRequest;
 
 abstract class ScaffoldController extends Controller
 {

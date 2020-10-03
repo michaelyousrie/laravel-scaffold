@@ -2,8 +2,8 @@
 
 namespace LaravelScaffold\Controllers;
 
-use App\Http\Requests\CreateUserRequest;
 use LaravelScaffold\Services\UserService;
+use LaravelScaffold\Requests\CreateUserRequest;
 
 class RegisterController extends ScaffoldController
 {

@@ -2,9 +2,9 @@
 
 namespace LaravelScaffold\Controllers;
 
-use App\Http\Requests\UploadFileRequest;
 use LaravelScaffold\Helpers\FileUploader;
 use LaravelScaffold\Responses\SuccessResponse;
+use LaravelScaffold\Requests\UploadFileRequest;
 
 class FilesController extends ScaffoldController
 {

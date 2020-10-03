@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Services\{$name}Service;
+use App\Http\Resources\{$name}Resource;
+use App\Http\Requests\Create{$name}Request;
+use LaravelScaffold\Controllers\ScaffoldController;
+
+class {$name}sController extends ScaffoldController
+{
+    public function __construct({$name}Service $service)
+    {
+        $this->service = $service;
+        $this->resource = {$name}Resource::class;
+    }
+
+    public function store(Create{$name}Request $request)
+    {
+        return $this->create(
+            $request->only('key')
+        );
+    }
+}

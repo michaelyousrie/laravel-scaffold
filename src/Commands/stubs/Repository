@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Repositories;
+
+use App\{$name};
+use LaravelScaffold\Repositories\ScaffoldRepository
+
+class {$name}Repository extends ScaffoldRepository
+{
+    protected $model = {$name}::class;
+}

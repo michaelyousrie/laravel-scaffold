@@ -1,11 +1,11 @@
 <?php
 
-namespace LaravelScaffold\Abstracts;
+namespace LaravelScaffold\Services;
 
-use App\Helpers\Responses\FailResponse;
 use Illuminate\Database\Eloquent\Model;
+use LaravelScaffold\Responses\FailResponse;
 
-abstract class AbstractService
+abstract class ScaffoldService
 {
     protected $repo;
 

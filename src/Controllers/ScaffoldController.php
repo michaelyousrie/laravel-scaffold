@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelScaffold\Abstracts;
+namespace LaravelScaffold\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +9,7 @@ use LaravelScaffold\Responses\CreatedResponse;
 use LaravelScaffold\Responses\SuccessResponse;
 use LaravelScaffold\Responses\NotFoundResponse;
 
-abstract class AbstractApiController extends Controller
+abstract class ScaffoldController extends Controller
 {
     protected $service;
     protected $resource;

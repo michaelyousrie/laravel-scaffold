@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace LaravelScaffold\Requests;
 
-use LaravelScaffold\Abstracts\AbstractApiRequest;
+use LaravelScaffold\Requests\ScaffoldRequest;
 
-class Create{$name}Request extends AbstractApiRequest
+class UserLoginRequest extends ScaffoldRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class Create{$name}Request extends AbstractApiRequest
     public function rules()
     {
         return [
-            //
+            'email'     => 'required',
+            'password'  => 'required'
         ];
     }
 }

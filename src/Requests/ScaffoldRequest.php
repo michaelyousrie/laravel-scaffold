@@ -1,13 +1,13 @@
 <?php
 
-namespace LaravelScaffold\Abstracts;
+namespace LaravelScaffold\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use LaravelScaffold\Responses\FailResponse;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-abstract class AbstractApiRequest extends FormRequest
+abstract class ScaffoldRequest extends FormRequest
 {
     protected function failedValidation(Validator $validator)
     {

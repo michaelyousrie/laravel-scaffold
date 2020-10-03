@@ -1,11 +1,11 @@
 <?php
 
-namespace LaravelScaffold\Abstracts;
+namespace LaravelScaffold\Resources;
 
 use LaravelScaffold\Helpers\TimeDate;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-abstract class AbstractResource extends JsonResource
+abstract class ScaffoldResource extends JsonResource
 {
     abstract public function makeData();
 

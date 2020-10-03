@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelScaffold\Abstracts;
+namespace LaravelScaffold\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-abstract class AbstractRepository
+abstract class ScaffoldRepository
 {
     protected $model;
 

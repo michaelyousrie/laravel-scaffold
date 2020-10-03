@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\LoginController;
+use LaravelScaffold\Controllers\FilesController;
+use LaravelScaffold\Controllers\RegisterController;
+
+Route::group(['prefix' => 'v1'], function () {
+    // Auth Routes
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('register', [RegisterController::class, 'handle'])
+            ->name('auth.register');
+
+        Route::post('login', [LoginController::class, 'handle'])
+            ->name('auth.login');
+    });
+
+    // Authorized-only Routes
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('/user', [UsersController::class, 'loggedin'])
+            ->name('users.loggedin');
+
+        Route::get('/upload', [FilesController::class, 'handle'])
+            ->name('files.upload');
+
+        // 
+    });
+});

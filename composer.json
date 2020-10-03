@@ -19,7 +19,9 @@
     },
     "extra": {
         "laravel": {
-            "providers": []
+            "providers": [
+                "LaravelScaffold\\ScaffoldServiceProvider"
+            ]
         }
     }
 }

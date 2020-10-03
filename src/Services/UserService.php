@@ -4,14 +4,14 @@ namespace LaravelScaffold\Services;
 
 use App\Models\User;
 use Illuminate\Support\Str;
-use App\Http\Resources\UserResource;
-use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use LaravelScaffold\Resources\UserResource;
 use LaravelScaffold\Responses\FailResponse;
 use LaravelScaffold\Responses\CreatedResponse;
 use LaravelScaffold\Responses\SuccessResponse;
 use LaravelScaffold\Responses\NotFoundResponse;
+use LaravelScaffold\Repositories\UserRepository;
 
 class UserService extends ScaffoldService
 {

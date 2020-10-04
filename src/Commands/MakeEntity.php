@@ -3,6 +3,7 @@
 namespace LaravelScaffold\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class MakeEntity extends Command
 {
@@ -48,10 +49,10 @@ class MakeEntity extends Command
         $entityName = ucfirst(strtolower($entityName));
         $pluralEntityName = $this->pluralize($entityName);
 
-        $this->artisan("make:controller Api/{$pluralEntityName}Controller");
-        $this->artisan("make:model {$entityName} -m");
-        $this->artisan("make:resource {$entityName}Resource");
-        $this->artisan("make:request Create{$entityName}Request");
+        Artisan::call("make:controller Api/{$pluralEntityName}Controller");
+        Artisan::call("make:model {$entityName} -m");
+        Artisan::call("make:resource {$entityName}Resource");
+        Artisan::call("make:request Create{$entityName}Request");
 
         $repoStub = $this->inject($this->readStub("Repository"), $entityName);
         $serviceStub = $this->inject($this->readStub("Service"), $entityName);

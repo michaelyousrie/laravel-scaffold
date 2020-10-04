@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use LaravelScaffold\Controllers\LoginController;
 use LaravelScaffold\Controllers\FilesController;
+use LaravelScaffold\Controllers\LoginController;
+use LaravelScaffold\Controllers\UsersController;
 use LaravelScaffold\Controllers\RegisterController;
 
 Route::group(['prefix' => 'api/v1'], function () {

@@ -3,6 +3,7 @@
 namespace LaravelScaffold\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class MakeEntity extends Command
 {
@@ -26,12 +27,6 @@ class MakeEntity extends Command
             "dir"       => "app/Http/Controllers/Api",
             "plural"    => true,
             "suffix"    => "Controller"
-        ],
-        [
-            "stub"      => "Model",
-            "dir"       => "app/Models",
-            "plural"    => false,
-            "suffix"    => ""
         ],
         [
             "stub"      => "Repository",
@@ -107,6 +102,8 @@ class MakeEntity extends Command
 
             file_put_contents($fileDir, $stub);
         }
+
+        Artisan::call("make:model {$entityName} -m");
 
         return true;
     }

@@ -7,7 +7,3 @@ Also it ships with a basic user groups and permissions with the necessary User c
 
 # Why is this a thing?
 Because I found myself mostly repeating some of the functionality in most of my APIs. It's about time to unify all of that repeated code into an updateable manageable composer package yeah?
-
-# NOTE
-- This package uses some static files which can be found on:
-https://github.com/michaelyousrie/laravel_scaffold_statics

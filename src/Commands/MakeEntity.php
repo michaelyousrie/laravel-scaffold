@@ -3,7 +3,6 @@
 namespace LaravelScaffold\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
 class MakeEntity extends Command
 {
@@ -20,6 +19,45 @@ class MakeEntity extends Command
      * @var string
      */
     protected $description = 'Generate a new laravel scaffold entity...';
+
+    protected $dirs = [
+        [
+            "stub"      => "Controller",
+            "dir"       => "app/Http/Controllers/Api",
+            "plural"    => true,
+            "suffix"    => "Controller"
+        ],
+        [
+            "stub"      => "Model",
+            "dir"       => "app/Models",
+            "plural"    => false,
+            "suffix"    => ""
+        ],
+        [
+            "stub"      => "Repository",
+            "dir"       => "app/Repositories",
+            "plural"    => false,
+            "suffix"    => "Repository"
+        ],
+        [
+            "stub"      => "Request",
+            "dir"       => "app/Http/Requests",
+            "plural"    => false,
+            "suffix"    => "Request"
+        ],
+        [
+            "stub"      => "Resource",
+            "dir"       => "app/Http/Resources",
+            "plural"    => false,
+            "suffix"    => "Resource"
+        ],
+        [
+            "stub"      => "Service",
+            "dir"       => "app/Services",
+            "plural"    => false,
+            "suffix"    => "Service"
+        ],
+    ];
 
     /**
      * Create a new command instance.
@@ -49,27 +87,22 @@ class MakeEntity extends Command
         $entityName = ucfirst(strtolower($entityName));
         $pluralEntityName = $this->pluralize($entityName);
 
-        Artisan::call("make:controller Api/{$pluralEntityName}Controller");
-        Artisan::call("make:model {$entityName} -m");
-        Artisan::call("make:resource {$entityName}Resource");
-        Artisan::call("make:request Create{$entityName}Request");
+        foreach ($this->dirs as $dir) {
+            $entity = $entityName;
 
-        $repoStub = $this->inject($this->readStub("Repository"), $entityName);
-        $serviceStub = $this->inject($this->readStub("Service"), $entityName);
+            if ($dir['plural'] == true) {
+                $entity = $pluralEntityName;
+            }
 
-        $reposDir = "{$dirRoot}/app/Repositories";
-        $servicesDir = "{$dirRoot}/app/Services";
+            $stub = $this->inject($this->readStub($dir['stub']), $entity);
+            $fullDir = "{$dirRoot}/{$dir['dir']}";
 
-        if (!file_exists($reposDir)) {
-            mkdir($reposDir);
+            if (!file_exists($fullDir)) {
+                mkdir($fullDir);
+            }
+
+            file_put_contents("{$fullDir}/{$entity}{$dir['suffix']}.php", $stub);
         }
-
-        if (!file_exists($servicesDir)) {
-            mkdir($servicesDir);
-        }
-
-        file_put_contents("{$reposDir}/{$entityName}Repository.php", $repoStub);
-        file_put_contents("{$servicesDir}/{$entityName}Service.php", $serviceStub);
 
         return true;
     }

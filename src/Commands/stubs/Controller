@@ -7,7 +7,7 @@ use App\Http\Resources\{$name}Resource;
 use App\Http\Requests\Create{$name}Request;
 use LaravelScaffold\Controllers\ScaffoldController;
 
-class {$name}Controller extends ScaffoldController
+class {$plural}Controller extends ScaffoldController
 {
     public function __construct({$name}Service $service)
     {

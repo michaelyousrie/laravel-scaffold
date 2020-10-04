@@ -46,22 +46,52 @@ class MakeEntity extends Command
     private function generateEntity(string $entityName, string $dirRoot)
     {
         $entityName = ucfirst(strtolower($entityName));
+        $pluralEntityName = $this->pluralize($entityName);
 
-        $controllerStub = $this->inject($this->readStub("Controller"), $entityName);
+        $this->artisan("make:controller Api/{$pluralEntityName}Controller");
+        $this->artisan("make:model {$entityName} -m");
+        $this->artisan("make:resource {$entityName}Resource");
+        $this->artisan("make:request Create{$entityName}Request");
+
         $repoStub = $this->inject($this->readStub("Repository"), $entityName);
-        $resourceStub = $this->inject($this->readStub("Resource"), $entityName);
         $serviceStub = $this->inject($this->readStub("Service"), $entityName);
-        $modelStub = $this->inject($this->readStub("Model"), $entityName);
-        $requestStub = $this->inject($this->readStub("Request"), $entityName);
 
-        file_put_contents("{$dirRoot}/app/Http/Controllers/Api/{$entityName}sController.php", $controllerStub);
-        file_put_contents("{$dirRoot}/app/Repositories/{$entityName}Repository.php", $repoStub);
-        file_put_contents("{$dirRoot}/app/Http/Resources/{$entityName}Resource.php", $resourceStub);
-        file_put_contents("{$dirRoot}/app/Services/{$entityName}Service.php", $serviceStub);
-        file_put_contents("{$dirRoot}/app/Models/{$entityName}.php", $modelStub);
-        file_put_contents("{$dirRoot}/app/Http/Requests/Create{$entityName}Request.php", $requestStub);
+        $reposDir = "{$dirRoot}/app/Repositories";
+        $servicesDir = "{$dirRoot}/app/Services";
+
+        if (!file_exists($reposDir)) {
+            mkdir($reposDir);
+        }
+
+        if (!file_exists($servicesDir)) {
+            mkdir($servicesDir);
+        }
+
+        file_put_contents("{$reposDir}/{$entityName}Repository.php", $repoStub);
+        file_put_contents("{$servicesDir}/{$entityName}Service.php", $serviceStub);
 
         return true;
+    }
+
+    /**
+     * Pluralizes a word if quantity is not one.
+     *
+     * @param int $quantity Number of items
+     * @param string $singular Singular form of word
+     * @param string $plural Plural form of word; function will attempt to deduce plural form from singular if not provided
+     * @return string Pluralized word if quantity is not one, otherwise singular
+     */
+    private function pluralize($singular)
+    {
+        $last_letter = strtolower($singular[strlen($singular) - 1]);
+        switch ($last_letter) {
+            case 'y':
+                return substr($singular, 0, -1) . 'ies';
+            case 's':
+                return $singular . 'es';
+            default:
+                return $singular . 's';
+        }
     }
 
     private function readStub(string $file)

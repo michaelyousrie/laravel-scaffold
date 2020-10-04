@@ -88,20 +88,24 @@ class MakeEntity extends Command
         $pluralEntityName = $this->pluralize($entityName);
 
         foreach ($this->dirs as $dir) {
-            $entity = $entityName;
+            $stub = $this->inject(
+                $this->readStub($dir['stub']),
+                $entityName,
+                $pluralEntityName
+            );
 
-            if ($dir['plural'] == true) {
-                $entity = $pluralEntityName;
-            }
-
-            $stub = $this->inject($this->readStub($dir['stub']), $entity);
             $fullDir = "{$dirRoot}/{$dir['dir']}";
 
             if (!file_exists($fullDir)) {
                 mkdir($fullDir);
             }
 
-            file_put_contents("{$fullDir}/{$entity}{$dir['suffix']}.php", $stub);
+            $fileDir = "{$fullDir}/{$entityName}{$dir['suffix']}.php";
+            if ($dir['plural'] == true) {
+                $fileDir = "{$fullDir}/{$pluralEntityName}{$dir['suffix']}.php";
+            }
+
+            file_put_contents($fileDir, $stub);
         }
 
         return true;
@@ -135,8 +139,9 @@ class MakeEntity extends Command
         return file_get_contents("{$currentDir}/stubs/{$file}");
     }
 
-    private function inject(string $stub, string $name)
+    private function inject(string $stub, string $name, string $plural)
     {
-        return str_replace('{$name}', $name, $stub);
+        $stub = str_replace('{$name}', $name, $stub);
+        return str_replace('{$plural}', $plural, $stub);
     }
 }

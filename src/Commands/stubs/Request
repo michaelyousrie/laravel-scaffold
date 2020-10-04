@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use LaravelScaffold\Request\ScaffoldRequest;
+use LaravelScaffold\Requests\ScaffoldRequest;
 
 class Create{$name}Request extends ScaffoldRequest
 {

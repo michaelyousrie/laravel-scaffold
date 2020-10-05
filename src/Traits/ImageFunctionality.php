@@ -3,6 +3,8 @@
 namespace LaravelScaffold\Traits;
 
 use Illuminate\Http\UploadedFile;
+use LaravelScaffold\Models\Image;
+use LaravelScaffold\Helpers\FileUploader;
 
 trait ImageFunctionality
 {

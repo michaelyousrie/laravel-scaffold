@@ -11,6 +11,6 @@ trait HasImages
 
     public function images()
     {
-        return $this->morphMany(Image::class);
+        return $this->morphMany(Image::class, 'imageable');
     }
 }

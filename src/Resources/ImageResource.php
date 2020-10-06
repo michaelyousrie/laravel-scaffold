@@ -9,7 +9,7 @@ class ImageResource extends ScaffoldResource
         return [
             'id'            => $this->id,
             'path'          => $this->path,
-            'url'           => asset("documents/{$this->path}")
+            'url'           => asset($this->path)
         ];
     }
 }

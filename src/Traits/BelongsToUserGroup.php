@@ -13,6 +13,10 @@ trait BelongsToUserGroup
 
     public function hasPermissionTo(string $permission)
     {
+        if (!$this->group) {
+            return false;
+        }
+
         return $this->group->permissions()->where(function ($where) use ($permission) {
             $where->where('permission', '*')
                 ->orWhere('permission', $permission);

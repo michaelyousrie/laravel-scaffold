@@ -26,30 +26,35 @@ class MakeEntity extends Command
             "stub"      => "Controller",
             "dir"       => "app/Http/Controllers/Api",
             "plural"    => true,
+            "prefix"    => "",
             "suffix"    => "Controller"
         ],
         [
             "stub"      => "Repository",
             "dir"       => "app/Repositories",
             "plural"    => false,
+            "prefix"    => "",
             "suffix"    => "Repository"
         ],
         [
             "stub"      => "Request",
             "dir"       => "app/Http/Requests",
             "plural"    => false,
+            "prefix"    => "Create",
             "suffix"    => "Request"
         ],
         [
             "stub"      => "Resource",
             "dir"       => "app/Http/Resources",
             "plural"    => false,
+            "prefix"    => "",
             "suffix"    => "Resource"
         ],
         [
             "stub"      => "Service",
             "dir"       => "app/Services",
             "plural"    => false,
+            "prefix"    => "",
             "suffix"    => "Service"
         ],
     ];
@@ -97,7 +102,7 @@ class MakeEntity extends Command
 
             $fileDir = "{$fullDir}/{$entityName}{$dir['suffix']}.php";
             if ($dir['plural'] == true) {
-                $fileDir = "{$fullDir}/{$pluralEntityName}{$dir['suffix']}.php";
+                $fileDir = "{$fullDir}/{$dir['prefix']}{$pluralEntityName}{$dir['suffix']}.php";
             }
 
             file_put_contents($fileDir, $stub);

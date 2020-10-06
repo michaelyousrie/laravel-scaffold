@@ -8,6 +8,8 @@ class FileUploader
 {
     public static function upload(UploadedFile $file, string $location = "documents")
     {
-        return $file->store(public_path($location));
+        $location = "public/{$location}";
+
+        return $file->store($location);
     }
 }

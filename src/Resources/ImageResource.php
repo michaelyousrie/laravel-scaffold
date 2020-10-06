@@ -9,7 +9,7 @@ class ImageResource extends ScaffoldResource
         return [
             'id'            => $this->id,
             'path'          => $this->path,
-            'url'           => url($this->path)
+            'url'           => url(str_replace('public/', '', $this->path))
         ];
     }
 }

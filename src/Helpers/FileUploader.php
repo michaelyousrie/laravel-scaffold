@@ -6,8 +6,8 @@ use Illuminate\Http\UploadedFile;
 
 class FileUploader
 {
-    public static function upload(UploadedFile $file, string $location = "public/documents")
+    public static function upload(UploadedFile $file, string $location = "documents")
     {
-        return $file->store($location);
+        return $file->store(public_path($location));
     }
 }

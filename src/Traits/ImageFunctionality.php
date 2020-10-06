@@ -10,7 +10,7 @@ trait ImageFunctionality
 {
     public function addImage(UploadedFile $file)
     {
-        $file = FileUploader::upload($file, storage_path("images"));
+        $file = FileUploader::upload($file, "images");
 
         $image = new Image([
             'path'      => $file

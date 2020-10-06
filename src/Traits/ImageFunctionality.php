@@ -12,7 +12,7 @@ trait ImageFunctionality
     {
         $file = FileUploader::upload($file);
 
-        $image = new Image([
+        $image = Image::forceCreate([
             'path'      => $file
         ]);
 

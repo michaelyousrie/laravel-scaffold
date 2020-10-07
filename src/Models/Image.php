@@ -14,4 +14,15 @@ class Image extends Model
     {
         return $this->morphTo();
     }
+
+    public function remove()
+    {
+        foreach ([storage_path($this->path), public_path($this->path), $this->path] as $path) {
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+
+        return $this->delete();
+    }
 }

@@ -22,7 +22,7 @@ class {$plural}Controller extends ScaffoldController
         );
     }
 
-    public function update({$name}Request $request, int $id)
+    public function update(Update{$name}Request $request, int $id)
     {
         return $this->updateObject(
             $id,

@@ -12,7 +12,7 @@ class MakeEntity extends Command
      *
      * @var string
      */
-    protected $signature = 'scaffold:entity {name}';
+    protected $signature = 'scaffold:entity {name} {--r|--replace}';
 
     /**
      * The console command description.
@@ -110,6 +110,10 @@ class MakeEntity extends Command
             $fileDir = "{$fullDir}/{$entityName}{$dir['suffix']}.php";
             if ($dir['plural'] == true) {
                 $fileDir = "{$fullDir}/{$dir['prefix']}{$pluralEntityName}{$dir['suffix']}.php";
+            }
+
+            if (file_exists($fileDir) && !$this->option('replace')) {
+                continue;
             }
 
             file_put_contents($fileDir, $stub);

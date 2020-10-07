@@ -107,7 +107,7 @@ class MakeEntity extends Command
                 mkdir($fullDir);
             }
 
-            $fileDir = "{$fullDir}/{$entityName}{$dir['suffix']}.php";
+            $fileDir = "{$fullDir}/{$dir['prefix']}{$entityName}{$dir['suffix']}.php";
             if ($dir['plural'] == true) {
                 $fileDir = "{$fullDir}/{$dir['prefix']}{$pluralEntityName}{$dir['suffix']}.php";
             }

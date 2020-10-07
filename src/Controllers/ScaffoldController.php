@@ -66,6 +66,20 @@ abstract class ScaffoldController extends Controller
             ->send();
     }
 
+    protected function updateObject(int $id, array $data)
+    {
+        $object = $this->find($id);
+        if (!$object instanceof Model) {
+            return $object;
+        }
+
+        $object = $this->service->update($object, $data);
+
+        return (new SuccessResponse)
+            ->setData(new $this->resource($object))
+            ->send();
+    }
+
     protected function find($id)
     {
         $object = $this->service->getById($id);

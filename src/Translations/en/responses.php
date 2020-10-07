@@ -9,5 +9,6 @@ return [
     'success'                       => "The request was successful :)",
     'login_required'                => "You must be logged in :(",
     'not_enough_permissions'        => "You don't have permission :(",
-    'unknown_language'              => "Unknown language. The allowed values are (en, ar) :("
+    'unknown_language'              => "Unknown language. The allowed values are (en, ar) :(",
+    "doesn't_belong_to_user"        => "This entity doesn't belong to this user :("
 ];

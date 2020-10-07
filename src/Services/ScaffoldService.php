@@ -40,4 +40,9 @@ abstract class ScaffoldService
     {
         return $this->repo->create($data);
     }
+
+    public function update($object, array $data)
+    {
+        return $this->repo->update($object, $data);
+    }
 }

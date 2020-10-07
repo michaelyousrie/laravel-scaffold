@@ -62,4 +62,11 @@ abstract class ScaffoldRepository
     {
         return $this->model::count();
     }
+
+    public function update($object, array $data)
+    {
+        $object->update($data);
+
+        return $this->getById($object->id);
+    }
 }

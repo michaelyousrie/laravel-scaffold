@@ -9,5 +9,6 @@ return [
     'success'                       => "تم تنفيذ الطلب بنجاح :)",
     'login_required'                => "يجب تسجيل الدخول اولاً :(",
     'not_enough_permissions'        => "ليس لديك الصلاحية :(",
-    'unknown_language'              => "هذه اللغة غير معروفة. القيم المسموحة هي (en, ar) :("
+    'unknown_language'              => "هذه اللغة غير معروفة. القيم المسموحة هي (en, ar) :(",
+    'doesnt_belong_to_user'         => "المستخدم لا يمتلك هذا الشئ :("
 ];

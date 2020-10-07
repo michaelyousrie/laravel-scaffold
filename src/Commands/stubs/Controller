@@ -21,4 +21,12 @@ class {$plural}Controller extends ScaffoldController
             $request->only('key')
         );
     }
+
+    public function update(Update{$name}Request $request, int $id)
+    {
+        return $this->updateObject(
+            $id,
+            $request->only('key')
+        );
+    }
 }

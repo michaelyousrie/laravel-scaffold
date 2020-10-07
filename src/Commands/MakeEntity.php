@@ -44,6 +44,13 @@ class MakeEntity extends Command
             "suffix"    => "Request"
         ],
         [
+            "stub"      => "Request",
+            "dir"       => "app/Http/Requests",
+            "plural"    => false,
+            "prefix"    => "Update",
+            "suffix"    => "Request"
+        ],
+        [
             "stub"      => "Resource",
             "dir"       => "app/Http/Resources",
             "plural"    => false,

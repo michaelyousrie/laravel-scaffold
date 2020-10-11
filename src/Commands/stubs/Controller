@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Services\{$name}Service;
 use App\Http\Resources\{$name}Resource;
 use App\Http\Requests\Create{$name}Request;
+use App\Http\Requests\Update{$name}Request;
 use LaravelScaffold\Controllers\ScaffoldController;
 
 class {$plural}Controller extends ScaffoldController

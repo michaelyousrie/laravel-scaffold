@@ -17,7 +17,7 @@ class MustOwnMiddleware
     public function handle($request, Closure $next, string $requestElement, string $key = 'user_id')
     {
         if ($request->$requestElement->$key != $request->user()->id) {
-            return (new UnauthorizedResponse(__("responses.doesnt_belong_to_user")))
+            return (new UnauthorizedResponse(__("scaffold::responses.doesnt_belong_to_user")))
                 ->send();
         }
 

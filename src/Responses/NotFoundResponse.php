@@ -8,6 +8,6 @@ class NotFoundResponse extends ApiResponse
 
     public function getDefaultMessage()
     {
-        return __("responses.not_found");
+        return __("scaffold::responses.not_found");
     }
 }

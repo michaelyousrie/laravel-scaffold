@@ -10,12 +10,12 @@ class UnauthenticatedResponse extends ApiResponse
     public function getErrors(): array
     {
         return [
-            "Authentication" => __("responses.login_required")
+            "Authentication" => __("scaffold::responses.login_required")
         ];
     }
 
     public function getDefaultMessage()
     {
-        return __("responses.login_required");
+        return __("scaffold::responses.login_required");
     }
 }

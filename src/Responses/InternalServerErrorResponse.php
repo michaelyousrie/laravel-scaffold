@@ -8,6 +8,6 @@ class InternalServerErrorResponse extends ApiResponse
 
     public function getDefaultMessage()
     {
-        return __("responses.internal_server_error");
+        return __("scaffold::responses.internal_server_error");
     }
 }

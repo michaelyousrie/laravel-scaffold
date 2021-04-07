@@ -9,6 +9,6 @@ class CreatedResponse extends ApiResponse
 
     public function getDefaultMessage()
     {
-        return __("responses.created");
+        return __("scaffold::responses.created");
     }
 }

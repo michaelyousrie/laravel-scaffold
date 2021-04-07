@@ -9,6 +9,6 @@ class SuccessResponse extends ApiResponse
 
     public function getDefaultMessage()
     {
-        return __("responses.success");
+        return __("scaffold::responses.success");
     }
 }

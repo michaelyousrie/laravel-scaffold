@@ -9,13 +9,13 @@ class UnauthorizedResponse extends ApiResponse
 
     public function getMessage()
     {
-        return __("responses.not_enough_permissions");
+        return __("scaffold::responses.not_enough_permissions");
     }
 
     public function getErrors(): array
     {
         return [
-            'Permission'        => __("responses.not_enough_permissions")
+            'Permission'        => __("scaffold::responses.not_enough_permissions")
         ];
     }
 }

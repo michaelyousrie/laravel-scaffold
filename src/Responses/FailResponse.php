@@ -8,6 +8,6 @@ class FailResponse extends ApiResponse
 
     public function getDefaultMessage()
     {
-        return __("responses.fail");
+        return __("scaffold::responses.fail");
     }
 }

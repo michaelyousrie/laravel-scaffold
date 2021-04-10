@@ -1,29 +1,25 @@
 <?php
-namespace LaravelScaffold\Traits;
+namespace LaravelScaffold\Models;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 
-trait FilterableByParameters
+abstract class FilterableModel extends Model
 {
-    protected $filterMapper = [];
     protected $filterEquals = [];
     protected $filterLike = [];
     protected $filterDates = [];
     protected $query = null;
     protected $request = null;
-    protected $paginate = true;
-    protected $perPage = 50;
 
-    public function scopeFilter($query, Request $request, array $filterEquals = [], array $filterLike = [], array $filterDates = [], $paginate = true, $perPage = 50)
+    public function scopeFilter($query, Request $request, array $filterEquals = [], array $filterLike = [], array $filterDates = [])
     {
         $this->query = $query;
         $this->request = $request;
         $this->filterEquals = $filterEquals;
         $this->filterLike = $filterLike;
         $this->filterDates = $filterDates;
-        $this->paginate = $paginate;
-        $this->perPage = $perPage;
         
         $this->filterByEquals()
             ->filterByLike()

@@ -38,9 +38,9 @@ abstract class FilterableModel extends Model
             if ($this->request->has($value) and !empty($this->request->$value)) {
                 $this->query->where($columnName, $this->request->$value);
             }
-
-            return $this;
         }
+
+        return $this;
     }
 
     protected function filterByLike()

@@ -60,7 +60,7 @@ abstract class FilterableModel extends Model
             }
 
             if ($this->request->has($value) and !empty($this->request->$value)) {
-                $this->query->where($columnName, "LIKE", "%$this->request->$value%");
+                $this->query->where($columnName, "LIKE", "%{$this->request->$value}%");
             }
         }
 

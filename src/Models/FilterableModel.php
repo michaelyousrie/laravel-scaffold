@@ -17,10 +17,19 @@ abstract class FilterableModel extends Model
     {
         $this->query = $query;
         $this->request = $request;
-        $this->filterEquals = $filterEquals;
-        $this->filterLike = $filterLike;
-        $this->filterDates = $filterDates;
-        
+
+        if (!empty($filterEquals)) {
+            $this->filterEquals = $filterEquals;
+        }
+
+        if (!empty($filterLike)) {
+            $this->filterLike = $filterLike;
+        }
+
+        if (!empty($filterDates)) {
+            $this->filterDates = $filterDates;
+        }
+
         $this->filterByEquals()
             ->filterByLike()
             ->filterByDates();

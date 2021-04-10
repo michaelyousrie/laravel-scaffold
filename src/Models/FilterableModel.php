@@ -74,15 +74,17 @@ abstract class FilterableModel extends Model
                 $type = $value;
             }
 
-            $value = Carbon::parse($value);
+            if ($this->request->has($value) and !empty($this->request->$value)) {
+                $value = Carbon::createFromFormat("Y-m-d", $this->request->$value);
 
-            if (strtolower($type) == 'from') {
-                $operator = '>=';
-            } else if (strtolower($type == 'to')) {
-                $operator = '<=';
+                if (strtolower($type) == 'from') {
+                    $operator = '>=';
+                } elseif (strtolower($type == 'to')) {
+                    $operator = '<=';
+                }
+
+                $this->query->whereDate('created_at', $operator, $value->toDateString());
             }
-
-            $this->query->whereDate('created_at', $operator, $value->toDateString());
         }
 
         return $this;
